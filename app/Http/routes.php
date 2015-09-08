@@ -15,3 +15,11 @@ Route::get('/', [
     'uses' => '\Tinder\Http\Controllers\HomeController@index',
     'as'   => 'home'
 ]);
+
+/**
+ *  Authentication routes
+ */
+Route::get('/signup', [
+    'uses' => '\Tinder\Http\Controllers\AuthController@getSignUp',
+    'as'   => 'auth.signup'
+]);
