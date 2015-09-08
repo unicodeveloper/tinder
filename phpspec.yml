@@ -1,0 +1,5 @@
+suites:
+    main:
+        namespace: Tinder
+        psr4_prefix: Tinder
+        src_path: app
