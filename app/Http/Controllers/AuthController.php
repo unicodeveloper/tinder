@@ -2,6 +2,7 @@
 
 namespace Tinder\Http\Controllers;
 
+use Tinder\User;
 use Illuminate\Http\Request;
 
 class AuthController extends Controller
@@ -19,6 +20,15 @@ class AuthController extends Controller
             'password' => 'required|min:6',
         ]);
 
+        User::create([
+            'email' => $request->input('email'),
+            'username' => $request->input('username'),
+            'password' => bcrypt($request->input('password'))
+        ]);
+
+        return redirect()
+                    ->route('home')
+                    ->withInfo('Your account has been created and you can now sign in');
     }
 
 }
