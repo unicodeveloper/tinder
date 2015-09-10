@@ -21,7 +21,7 @@
                 @if (Auth::check())
                     <li><a href="#">{{ Auth::user()->getNameOrUserName() }}</a></li>
                     <li><a href="#">Update profile</a></li>
-                    <li><a href="#">Sign out</a></li>
+                    <li><a href="{{ route('auth.signout') }}">Sign out</a></li>
                 @else
                     <li><a href="{{ route('auth.signup') }}">Sign up</a></li>
                     <li><a href="{{ route('auth.signin') }}">Sign in</a></li>

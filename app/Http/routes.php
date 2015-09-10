@@ -36,3 +36,8 @@ Route::get('/signin', [
 Route::post('/signin', [
     'uses' => '\Tinder\Http\Controllers\AuthController@postSignIn'
 ]);
+
+Route::get('/signout', [
+    'uses' => '\Tinder\Http\Controllers\AuthController@getSignOut',
+    'as'   => 'auth.signout'
+]);
