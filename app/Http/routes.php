@@ -45,3 +45,11 @@ Route::get('/signout', [
     'uses' => '\Tinder\Http\Controllers\AuthController@getSignOut',
     'as'   => 'auth.signout'
 ]);
+
+/**
+ *  Search Routes
+ */
+Route::get('/search', [
+    'uses' => '\Tinder\Http\Controllers\SearchController@getResults',
+    'as'   => 'search.results'
+]);
