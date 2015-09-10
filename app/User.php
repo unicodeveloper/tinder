@@ -42,4 +42,23 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
         'password',
         'remember_token'
     ];
+
+    public function getName()
+    {
+        if( $this->first_name && $this->last_name){
+            return "{$this->first_name} {$this->last_name}";
+        }
+    }
+
+    public function getNameOrUserName()
+    {
+        return $this->getName() ?: $this->username;
+    }
+
+    public function getFirstNameOrUsername()
+    {
+        return $this->first_name ?: $this->username;
+    }
+
+
 }

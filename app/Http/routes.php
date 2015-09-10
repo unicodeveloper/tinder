@@ -27,3 +27,12 @@ Route::get('/signup', [
 Route::post('/signup', [
     'uses' => '\Tinder\Http\Controllers\AuthController@postSignUp'
 ]);
+
+Route::get('/signin', [
+    'uses' => '\Tinder\Http\Controllers\AuthController@getSignIn',
+    'as'   => 'auth.signin'
+]);
+
+Route::post('/signin', [
+    'uses' => '\Tinder\Http\Controllers\AuthController@postSignIn'
+]);

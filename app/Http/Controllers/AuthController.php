@@ -2,6 +2,7 @@
 
 namespace Tinder\Http\Controllers;
 
+use Auth;
 use Tinder\User;
 use Illuminate\Http\Request;
 
@@ -29,6 +30,27 @@ class AuthController extends Controller
         return redirect()
                     ->route('home')
                     ->withInfo('Your account has been created and you can now sign in');
+    }
+
+    public function getSignIn()
+    {
+        return view('auth.signin');
+    }
+
+    public function postSignIn(Request $request)
+    {
+        $this->validate($request, [
+            'email' => 'required',
+            'password' => 'required'
+        ]);
+
+        $authStatus = Auth::attempt($request->only(['email','password']), $request->has('remember'));
+
+        if(! $authStatus){
+            return redirect()->back()->with('info', 'Invalid Email or Password' );
+        }
+
+        return redirect()->route('home')->with('info', 'You are now signed in');
     }
 
 }
