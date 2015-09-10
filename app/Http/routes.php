@@ -21,20 +21,24 @@ Route::get('/', [
  */
 Route::get('/signup', [
     'uses' => '\Tinder\Http\Controllers\AuthController@getSignUp',
-    'as'   => 'auth.signup'
+    'as'   => 'auth.signup',
+    'middleware' => ['guest']
 ]);
 
 Route::post('/signup', [
-    'uses' => '\Tinder\Http\Controllers\AuthController@postSignUp'
+    'uses' => '\Tinder\Http\Controllers\AuthController@postSignUp',
+    'middleware' => ['guest']
 ]);
 
 Route::get('/signin', [
     'uses' => '\Tinder\Http\Controllers\AuthController@getSignIn',
-    'as'   => 'auth.signin'
+    'as'   => 'auth.signin',
+    'middleware' => ['guest']
 ]);
 
 Route::post('/signin', [
-    'uses' => '\Tinder\Http\Controllers\AuthController@postSignIn'
+    'uses' => '\Tinder\Http\Controllers\AuthController@postSignIn',
+    'middleware' => ['guest']
 ]);
 
 Route::get('/signout', [
