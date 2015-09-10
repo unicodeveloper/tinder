@@ -44,10 +44,9 @@ class AuthController extends Controller
             'password' => 'required'
         ]);
 
-        $authStatus = Auth::attempt($request->only(['email','password']), $request->has('remember'));
-
-        if(! $authStatus){
-            return redirect()->back()->with('info', 'Invalid Email or Password' );
+        $authStatus = Auth::attempt($request->only(['email', 'password']), $request->has('remember'));
+        if (!$authStatus) {
+            return redirect()->back()->with('info', 'Invalid Email or Password');
         }
 
         return redirect()->route('home')->with('info', 'You are now signed in');
@@ -59,5 +58,4 @@ class AuthController extends Controller
 
         return redirect()->route('home');
     }
-
 }
