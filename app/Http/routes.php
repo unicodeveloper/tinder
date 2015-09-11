@@ -53,3 +53,11 @@ Route::get('/search', [
     'uses' => '\Tinder\Http\Controllers\SearchController@getResults',
     'as'   => 'search.results'
 ]);
+
+/**
+ *  Profile routes
+ */
+Route::get('user/{username}', [
+    'uses' => '\Tinder\Http\Controllers\ProfileController@getProfile',
+    'as'   => 'profile.index'
+]);
