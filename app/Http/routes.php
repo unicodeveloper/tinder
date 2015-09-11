@@ -72,3 +72,11 @@ Route::post('/profile/edit', [
     'uses' => '\Tinder\Http\Controllers\ProfileController@postEdit',
     'middleware' => ['auth']
 ]);
+/**
+ *  Friends
+ */
+Route::get('/friends', [
+    'uses' => '\Tinder\Http\Controllers\FriendController@getIndex',
+    'as'   => 'friends.index',
+    'middleware' => ['auth']
+]);
